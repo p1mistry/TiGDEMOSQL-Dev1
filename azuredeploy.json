@@ -99,7 +99,7 @@
   },
   "variables": {
     "storageAccountName": "[concat('bootdiags', uniquestring(resourceGroup().id))]",
-    "nicName": "tigsql-vnet01",
+    "nicName": "tigsql-vnet-01",
     "addressPrefix": "10.0.0.0/16",
     "subnetName": "Subnet",
     "subnetPrefix": "10.0.0.0/24",
