@@ -7,7 +7,7 @@ trigger:
 - main
 
 pool:
-  name: RIG-WKS-01
+  name: Azure Pipelines
 
 steps:
 - task: AzureKeyVault@2
