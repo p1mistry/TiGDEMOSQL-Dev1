@@ -30,7 +30,7 @@ stages:
                         RunAsPreJob: false
 
                     - task: AzureResourceManagerTemplateDeployment@3
-                        inputs:
+                      inputs:
                         deploymentScope: 'Resource Group'
                         azureResourceManagerConnection: 'TiGDEMOSQL_ServerConnection1'
                         subscriptionId: '97b1d573-01f6-4493-9ed7-22fc75e79016'
