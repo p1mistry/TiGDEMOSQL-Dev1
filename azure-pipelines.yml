@@ -11,8 +11,8 @@ pool:
 
 stages:
   - stage: 'Test'
-        jobs:
-            - deployment: 'DeploymentToTest'
+       jobs:
+       - deployment: 'DeploymentToTest'
                 environment: 'TIGSQLDEMO_DEV1_Environment'
                 strategy:  
                     runOnce:
