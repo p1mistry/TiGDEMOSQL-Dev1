@@ -28,7 +28,6 @@ stages:
                         KeyVaultName: 'tigsql-keyvault-01'
                         SecretsFilter: 'LocalAdmin2'
                         RunAsPreJob: false
-
                     - task: AzureResourceManagerTemplateDeployment@3
                       inputs:
                         deploymentScope: 'Resource Group'
