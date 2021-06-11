@@ -31,3 +31,12 @@ steps:
     overrideParameters: '-adminPassword $(LocalAdmin2)'
     deploymentMode: 'Incremental'
     deploymentName: 'TemplateDeploy'
+
+- stage: publishinternal
+  dependsOn: build
+  condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
+  displayName: 'TIGSQLDEMO_DEV1_PIPELINES_APPROVAL'
+  jobs:
+  - deployment: publishinternal
+    displayName: 'TIGSQLDEMO_DEV1_PIPELINES_APPROVAL'
+    environment: TIGDEVDEMO_DEV1_Environment
