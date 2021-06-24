@@ -8,7 +8,7 @@ trigger:
 
 stages:
   stage: DEV
-    displayname: "DEV Stage"
+    name: DEV
     jobs:
        Job: Job1
             
