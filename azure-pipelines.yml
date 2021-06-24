@@ -7,7 +7,7 @@ trigger:
 - main
 
 stages:
-  - stage: Build
+  - stage: publishinternal
     displayName: Build Development Environment Approval
     dependsOn: build
     condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
