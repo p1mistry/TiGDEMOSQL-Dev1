@@ -9,33 +9,25 @@ trigger:
 pool:
   vmImage: 'windows-latest'
 
-stages:
-  - stage: 'Test'
-       jobs:
-       - deployment: 'DeploymentToTest'
-                environment: 'TIGSQLDEMO_DEV1_Environment'
-                strategy:  
-                    runOnce:
-                        deploy:
-                            steps:
-                            - task: AzureKeyVault@2
-                              inputs:
-                                azureSubscription: 'TiGDEMOSQL_ServerConnection1'
-                                KeyVaultName: 'tigsql-keyvault-01'
-                                SecretsFilter: 'LocalAdmin2'
-                                RunAsPreJob: false
+steps:
+- task: AzureKeyVault@2
+  inputs:
+    azureSubscription: 'TiGDEMOSQL_ServerConnection1'
+    KeyVaultName: 'tigsql-keyvault-01'
+    SecretsFilter: 'LocalAdmin2'
+    RunAsPreJob: false
 
-                            - task: AzureResourceManagerTemplateDeployment@3
-                              inputs:
-                                deploymentScope: 'Resource Group'
-                                azureResourceManagerConnection: 'TiGDEMOSQL_ServerConnection1'
-                                subscriptionId: '97b1d573-01f6-4493-9ed7-22fc75e79016'
-                                action: 'Create Or Update Resource Group'
-                                resourceGroupName: 'tigsql-rg01'
-                                location: 'UK South'
-                                templateLocation: 'Linked artifact'
-                                csmFile: 'azuredeploy.json'
-                                csmParametersFile: 'azuredeploy.parameters.json'
-                                overrideParameters: '-adminPassword $(LocalAdmin2)'
-                                deploymentMode: 'Incremental'
-                                deploymentName: 'TemplateDeploy'
+- task: AzureResourceManagerTemplateDeployment@3
+  inputs:
+    deploymentScope: 'Resource Group'
+    azureResourceManagerConnection: 'TiGDEMOSQL_ServerConnection1'
+    subscriptionId: '97b1d573-01f6-4493-9ed7-22fc75e79016'
+    action: 'Create Or Update Resource Group'
+    resourceGroupName: 'tigsql-rg01'
+    location: 'UK South'
+    templateLocation: 'Linked artifact'
+    csmFile: 'azuredeploy.json'
+    csmParametersFile: 'azuredeploy.parameters.json'
+    overrideParameters: '-adminPassword $(LocalAdmin2)'
+    deploymentMode: 'Incremental'
+    deploymentName: 'TemplateDeploy'
