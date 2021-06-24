@@ -11,7 +11,7 @@ stages:
 - displayName: Dev
 - jobs:
   - job: Job1
-    - pool:
+    pool:
      vmimage: windows-latest'
 
             steps:
