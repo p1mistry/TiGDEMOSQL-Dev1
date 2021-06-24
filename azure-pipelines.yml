@@ -7,11 +7,12 @@ trigger:
 - main
 
 stages:
-- stage: Build
-- jobs:
-  - job: BuildDev
-     pool:
-     name: RIG-WKS-01
+  - stage: Build
+    jobs:
+      - job: BuildDevEnv
+
+        pool:
+          vmImage: 'windows-latest'
 
         steps:
         - task: AzureKeyVault@2
