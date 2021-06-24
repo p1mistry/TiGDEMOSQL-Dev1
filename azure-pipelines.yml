@@ -7,11 +7,10 @@ trigger:
 - main
 
 stages:
-  stage: DEV
-    name: DEV
-    jobs:
-       Job: Job1
-            
+- stage: Dev
+- displayName: Dev
+- jobs:
+  - job: Job1
 
 
             pool:
