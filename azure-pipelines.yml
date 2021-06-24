@@ -15,13 +15,12 @@ stages:
      vmimage: windows-latest'
      -steps:
            - task: AzureKeyVault@2
-              inputs:
+               inputs:
                 azureSubscription: 'TiGDEMOSQL_ServerConnection1'
                 KeyVaultName: 'tigsql-keyvault-01'
                 SecretsFilter: 'LocalAdmin2'
                 RunAsPreJob: false
-
-            - task: AzureResourceManagerTemplateDeployment@3
+           - task: AzureResourceManagerTemplateDeployment@3
               inputs:
                 deploymentScope: 'Resource Group'
                 azureResourceManagerConnection: 'TiGDEMOSQL_ServerConnection1'
