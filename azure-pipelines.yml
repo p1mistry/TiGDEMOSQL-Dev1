@@ -8,6 +8,8 @@ trigger:
  
 stages:
   - stage: Test
+    jobs:
+      - job: Test
 
   - stage: Build
     jobs:
