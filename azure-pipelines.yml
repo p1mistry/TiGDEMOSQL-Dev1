@@ -13,11 +13,11 @@ stages:
 
   - stage: Build
     jobs:
-      - job: BuildDevEnv
+      - deployment:
 
         pool:
           vmImage: 'windows-latest'
-
+        environment: TIGSQLDEMO_DEV1_Environment_Approvers
         steps:
         - task: AzureKeyVault@2
           inputs:
