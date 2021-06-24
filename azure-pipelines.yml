@@ -11,10 +11,8 @@ stages:
 - displayName: Dev
 - jobs:
   - job: Job1
-
-
-            pool:
-              vmImage: 'windows-latest'
+    - pool:
+     vmimage: windows-latest'
 
             steps:
             - task: AzureKeyVault@2
